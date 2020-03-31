@@ -7,13 +7,52 @@
     <link rel="stylesheet" href="css/main.css">
 
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+    <!-- 最初にjquery入れないと僕のやつうまく動かないんで、最後に入れた方がいいのは知ってるんですが、、、、 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
   </head>
   <body>
-    <div class="test">test</div>
-    <div class="test2">test</div>
+    <div class="menu" id="menu-hide">
+      <div class="menu-trigger">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+      <script>
+          $(document).ready(function () {
+              $('.menu-trigger').click (function () {
+                  $(".menu-trigger").toggleClass('active');
+              });
+          });
+      </script>
+      <div class="menu-list">
+          <ul>
+              <li data-text="Home"><a href="#">Home</a></li>
+              <li data-text="About"><a href="#">About us</a></li>
+              <li data-text="Team"><a href="#">Team</a></li>
+              <li data-text="Contact"><a href="#">Contant</a></li>
+          </ul> 
+      </div>
+      <script>
+          $(document).ready(function () {
+              $('.menu-list').hide();
+              $('.menu-trigger').click (function () {
+                  $(".menu-list").fadeToggle(700);
+              });
+              // ↓PCだとうまくいくがスマホだとうまくいかない(そもそもスマホってホバーエフェクトがないのかも)
+              $('.menu-list').click (function () {
+                  $(".menu-list").toggle();
+              });
+          });
+      </script>
+</div> 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
+    <div class="team-container">
+      <div class=first"></div>
+      <div class="second"></div>
+    </div>
     <script src="js/main.js"></script>
     <script src="js/top.js"></script>
   </body>
